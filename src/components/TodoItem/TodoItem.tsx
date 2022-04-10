@@ -16,7 +16,9 @@ export type TodoProps = {
 const TodoItem = (props: TodoProps) => {
   const { id, name, status } = props;
 
-  const setStausDone = () => {};
+  const setStausUpdate = () => {
+    //status == 0 ? (status = 1) : (status = 0);
+  };
 
   return (
     <>
@@ -31,7 +33,7 @@ const TodoItem = (props: TodoProps) => {
                 className="imageTrash"
                 size="2x"
                 icon={faClipboardList}
-                onClick={() => setStausDone()}
+                onClick={() => setStausUpdate()}
               />
             ) : (
               <FontAwesomeIcon
@@ -52,8 +54,3 @@ const TodoItem = (props: TodoProps) => {
 };
 
 export default TodoItem;
-
-//
-// <div className="actionTodo">
-
-// </div>
