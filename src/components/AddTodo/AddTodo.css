@@ -1,0 +1,10 @@
+
+.inputText
+{
+    flex: 1;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    font-size: large;
+}

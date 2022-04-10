@@ -1,0 +1,21 @@
+.background{
+    background-color:#2F69E0 ;
+    height: 80px;
+    width: '100%';
+    display: flex;
+    justify-content: space-between;
+}
+.labelTxt{
+    color: #FFF;
+    font-weight: 600;
+    font-size: larger;
+    align-self: center;
+    margin-left: 30px;
+}
+.imagePlus
+{
+    height: 55px;
+    width: 55px;
+    align-self: center;
+        margin-right: 30px;
+}

@@ -1,0 +1,50 @@
+.todo-bg {
+    background-color: #FFF;
+    height: 80px;
+    width: '100%';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textContainer
+{
+    height: 70px;
+    display: flex;
+    flex: 7;
+}
+
+.actionContainer
+{
+    flex: 1;
+    height: 70px;
+    display: flex;
+}
+
+.actionSeconary
+{
+    flex: 1;
+
+}
+
+.actionPrimary {
+    flex: 1;
+}
+
+.todo-label {
+    color: #434343;
+    margin: 22px;  
+}
+
+.btnTodo
+{
+    background-color: #062d7b;
+    padding: 5px;
+    color: #FFF;
+}
+
+
+.imageTrash {
+    margin-left: 40px;
+    padding-top: 20px;
+}
