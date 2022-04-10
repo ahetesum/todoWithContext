@@ -1,14 +1,12 @@
+import { useContext } from "react";
+import { useTodoContext } from "../../store/TodoContext";
 import TodoItem, { TodoProps } from "../TodoItem/TodoItem";
 
-type TodoListProps = {
-  list: Array<TodoProps>;
-};
-
-export const TodoList = (props: TodoListProps) => {
-  const { list } = props;
+export const TodoList = () => {
+  const { todoList } = useTodoContext();
   return (
     <>
-      {list.map((item: TodoProps) => {
+      {todoList.map((item: TodoProps) => {
         return <TodoItem key={item.id} item={item}></TodoItem>;
       })}
     </>

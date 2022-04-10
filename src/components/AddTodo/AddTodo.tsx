@@ -1,6 +1,7 @@
 import { faClose, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useTodoContext } from "../../store/TodoContext";
 import "./AddTodo.css";
 
 type AddTodoProps = {
@@ -11,7 +12,10 @@ type AddTodoProps = {
 export const AddTodo = (props: AddTodoProps) => {
   const [todoInput, setTodoInput] = useState("");
 
-  const closeInputBox = () => {};
+  const addTodoItem = () => {
+    props.addTodoText(todoInput);
+    setTodoInput("");
+  };
 
   return (
     <>
@@ -36,7 +40,7 @@ export const AddTodo = (props: AddTodoProps) => {
           </div>
           <div className="actionPrimary">
             <FontAwesomeIcon
-              onClick={() => props.addTodoText(todoInput)}
+              onClick={() => addTodoItem()}
               className="imageTrash"
               size="2x"
               icon={faPen}

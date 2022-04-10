@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import TodoItem, { TodoProps } from "./components/TodoItem/TodoItem";
 import { TodoList } from "./components/TodoList/TodoList";
 import { AddTodo } from "./components/AddTodo/AddTodo";
+import { TodoContext } from "./store/TodoContext";
 
 const App = () => {
   const [isAddTodo, setIsAddTodo] = useState(true);
@@ -37,14 +38,16 @@ const App = () => {
 
   return (
     <div>
-      <Header todoCount={todoCount} showInputText={showAddTodo}></Header>
-      {isAddTodo ? (
-        <AddTodo
-          addTodoText={addTextTodoItem}
-          hideInputText={hideAddTodo}
-        ></AddTodo>
-      ) : null}
-      <TodoList list={todoList}></TodoList>
+      <TodoContext.Provider value={{ todoList, setTodoList }}>
+        <Header todoCount={todoCount} showInputText={showAddTodo}></Header>
+        {isAddTodo ? (
+          <AddTodo
+            addTodoText={addTextTodoItem}
+            hideInputText={hideAddTodo}
+          ></AddTodo>
+        ) : null}
+        <TodoList></TodoList>
+      </TodoContext.Provider>
     </div>
   );
 };
