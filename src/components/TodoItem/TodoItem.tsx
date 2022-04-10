@@ -6,19 +6,18 @@ import {
   faClipboardCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import "./TodoItem.css";
+import { useState } from "react";
 
 export type TodoProps = {
   id: number;
   name: string;
-  status: number;
+  status: boolean;
 };
 
 const TodoItem = (props: TodoProps) => {
   const { id, name, status } = props;
 
-  const setStausUpdate = () => {
-    //status == 0 ? (status = 1) : (status = 0);
-  };
+  const [taskStatus, setTaskStatus] = useState(status);
 
   return (
     <>
@@ -28,18 +27,19 @@ const TodoItem = (props: TodoProps) => {
         </div>
         <div className="actionContainer">
           <div className="actionSeconary">
-            {status == 0 ? (
+            {taskStatus ? (
               <FontAwesomeIcon
                 className="imageTrash"
                 size="2x"
-                icon={faClipboardList}
-                onClick={() => setStausUpdate()}
+                onClick={() => setTaskStatus(!taskStatus)}
+                icon={faClipboardCheck}
               />
             ) : (
               <FontAwesomeIcon
                 className="imageTrash"
                 size="2x"
-                icon={faClipboardCheck}
+                icon={faClipboardList}
+                onClick={() => setTaskStatus(!taskStatus)}
               />
             )}
           </div>

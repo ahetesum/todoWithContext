@@ -18,9 +18,9 @@ function App() {
   };
 
   const thingsToDo = [
-    { id: 1, name: "Buy Milk from Shop", status: 0 },
-    { id: 2, name: "Buy Tea from Shop", status: 1 },
-    { id: 3, name: "Buy Sugar from Shop", status: 0 },
+    { id: 1, name: "Buy Milk from Shop", status: false },
+    { id: 2, name: "Buy Tea from Shop", status: true },
+    { id: 3, name: "Buy Sugar from Shop", status: true },
   ];
 
   return (
