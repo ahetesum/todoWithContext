@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
-import TodoItem from "./components/TodoItem/TodoItem";
+import TodoItem, { TodoProps } from "./components/TodoItem/TodoItem";
 import { TodoList } from "./components/TodoList/TodoList";
 import { AddTodo } from "./components/AddTodo/AddTodo";
 
-function App() {
+const App = () => {
   const [isAddTodo, setIsAddTodo] = useState(true);
+
+  const [todoList, setTodoList] = useState<Array<TodoProps>>([]);
+  const [todoCount, setTodoCount] = useState(0);
 
   const hideAddTodo = () => {
     setIsAddTodo(false);
@@ -17,19 +20,33 @@ function App() {
     setIsAddTodo(true);
   };
 
-  const thingsToDo = [
-    { id: 1, name: "Buy Milk from Shop", status: false },
-    { id: 2, name: "Buy Tea from Shop", status: true },
-    { id: 3, name: "Buy Sugar from Shop", status: true },
-  ];
+  const addTextTodoItem = (text: string) => {
+    console.log(text);
+    let listTodoTemp = todoList;
+    let idGen = todoList.length + 1;
+    let item = {
+      id: idGen,
+      name: text,
+      status: false,
+    };
+    listTodoTemp.push(item);
+    console.log(listTodoTemp);
+    setTodoList(listTodoTemp);
+    setTodoCount(listTodoTemp.length);
+  };
 
   return (
     <div>
-      <Header list={thingsToDo} showInputText={showAddTodo}></Header>
-      {isAddTodo ? <AddTodo hideInputText={hideAddTodo}></AddTodo> : null}
-      <TodoList list={thingsToDo}></TodoList>
+      <Header todoCount={todoCount} showInputText={showAddTodo}></Header>
+      {isAddTodo ? (
+        <AddTodo
+          addTodoText={addTextTodoItem}
+          hideInputText={hideAddTodo}
+        ></AddTodo>
+      ) : null}
+      <TodoList list={todoList}></TodoList>
     </div>
   );
-}
+};
 
 export default App;

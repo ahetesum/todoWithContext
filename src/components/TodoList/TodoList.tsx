@@ -9,14 +9,7 @@ export const TodoList = (props: TodoListProps) => {
   return (
     <>
       {list.map((item: TodoProps) => {
-        return (
-          <TodoItem
-            key={item.id}
-            name={item.name}
-            id={item.id}
-            status={item.status}
-          ></TodoItem>
-        );
+        return <TodoItem key={item.id} item={item}></TodoItem>;
       })}
     </>
   );

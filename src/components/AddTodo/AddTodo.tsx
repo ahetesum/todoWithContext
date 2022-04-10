@@ -5,14 +5,13 @@ import "./AddTodo.css";
 
 type AddTodoProps = {
   hideInputText: () => void;
+  addTodoText: (text: string) => void;
 };
 
 export const AddTodo = (props: AddTodoProps) => {
   const [todoInput, setTodoInput] = useState("");
 
   const closeInputBox = () => {};
-
-  const addTodoItem = () => {};
 
   return (
     <>
@@ -36,7 +35,12 @@ export const AddTodo = (props: AddTodoProps) => {
             />
           </div>
           <div className="actionPrimary">
-            <FontAwesomeIcon className="imageTrash" size="2x" icon={faPen} />
+            <FontAwesomeIcon
+              onClick={() => props.addTodoText(todoInput)}
+              className="imageTrash"
+              size="2x"
+              icon={faPen}
+            />
           </div>
         </div>
       </div>

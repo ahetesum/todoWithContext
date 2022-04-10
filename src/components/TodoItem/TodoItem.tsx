@@ -14,8 +14,12 @@ export type TodoProps = {
   status: boolean;
 };
 
-const TodoItem = (props: TodoProps) => {
-  const { id, name, status } = props;
+export type TodoItemProps = {
+  item: TodoProps;
+};
+
+const TodoItem = (props: TodoItemProps) => {
+  const { id, name, status } = props.item;
 
   const [taskStatus, setTaskStatus] = useState(status);
 

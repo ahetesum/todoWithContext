@@ -4,22 +4,15 @@ import "./Header.css";
 
 type HeaderProps = {
   showInputText: () => void;
-  list: Array<TodoProps>;
+  todoCount: number;
 };
 
 const Header = (props: HeaderProps) => {
-  const [todoCount, setTodoCount] = useState(0);
-
-  useEffect(() => {
-    let count = props.list.filter((x) => x.status == false).length;
-    setTodoCount(count);
-  }, []);
-
   return (
     <>
       <div className="background">
         <label className="labelTxt">
-          Todo List (Total {todoCount} Todo Pending)
+          Todo List (Total {props.todoCount} Todo Pending)
         </label>
         <img
           onClick={() => props.showInputText()}
